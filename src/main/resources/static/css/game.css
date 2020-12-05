@@ -1,0 +1,40 @@
+h1{
+    text-align: center;
+    font-family: 'Arial', cursive;
+    color: antiquewhite;
+    font-size: xxx-large;
+}
+
+h2{
+    text-align: center;
+    font-family: 'Arial', cursive;
+    color: antiquewhite;
+    font-size: xx-large;
+}
+
+body{
+    background-color: #9999CC;
+}
+
+.game_type{
+    text-align: center;
+    color: antiquewhite;
+}
+
+.game_type_button {
+    border-radius: 12px;
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    color: navy;
+    font-family: 'Arial', cursive;
+    background-color: antiquewhite;
+}
+
+.game_statistic{
+    width: 30%;
+    text-align: center;
+    font-family: 'Arial', cursive;
+    color: antiquewhite;
+    font-size: xxx-large;
+}
