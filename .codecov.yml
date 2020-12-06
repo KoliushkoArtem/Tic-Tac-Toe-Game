@@ -1,6 +1,10 @@
 codecov:
   require_ci_to_pass: true
-  disable_default_path_fixes: true
+  disable_default_path_fixes: false
+
+fixes:
+  - "/src/main/java/::"
+
 
 coverage:
   precision: 1
