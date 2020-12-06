@@ -1,0 +1,22 @@
+language: java
+
+sudo: false
+
+jdk:
+  - oraclejdk11
+
+services:
+  - mysql
+
+script:
+  - mvn clean verify
+
+env:
+  global:
+    - CODECOV_TOKEN="19d03fb0-f158-4910-be1a-79cfceec47f2"
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  email: false
