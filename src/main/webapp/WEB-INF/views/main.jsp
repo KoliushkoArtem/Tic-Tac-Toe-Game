@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<link rel="stylesheet" href="css/game.css">
+<link rel="stylesheet" href="css/style.css">
 <html>
 <head>
     <title>Tic Tac Toe</title>
@@ -8,20 +8,20 @@
 <h1>Welcome to Tic Tac Toe game center</h1>
 <h2>Please choose your game type</h2>
 <div>
-    <table class="game_type" align="center">
+    <table class="main_page_table">
         <tr>
             <th>
-                <form method="get" action="${pageContext.request.contextPath}/game/pvp">
+                <form method="get" action="${pageContext.request.contextPath}/game/players">
                     <button type="submit" class="game_type_button">Player<br><br>VS<br><br>Player</button>
                 </form>
             <th>
-                <form method="get" action="${pageContext.request.contextPath}/game/pvpch">
+                <form method="get" action="${pageContext.request.contextPath}/game/algorithm">
                     <button type="submit" class="game_type_button">Player<br><br>VS<br><br>Algorithm<br>(HARD MODE)
                     </button>
                 </form>
             </th>
             <th>
-                <form method="get" action="${pageContext.request.contextPath}/game/pvpc">
+                <form method="get" action="${pageContext.request.contextPath}/game/random">
                     <button type="submit" class="game_type_button">Player<br><br>VS<br><br>Random</button>
                 </form>
             </th>
@@ -30,10 +30,10 @@
 </div>
 <h1>Statistic for games with Algorithm</h1>
 <div>
-    <table align="center">
+    <table class="main_page_table">
         <tr>
-            <th class="game_statistic">Algorithm  WIN</th>
-            <th class="game_statistic">PlayerWIN</th>
+            <th class="game_statistic">Algorithm WIN</th>
+            <th class="game_statistic">Player WIN</th>
             <th class="game_statistic">DRAW</th>
         </tr>
         <tr>

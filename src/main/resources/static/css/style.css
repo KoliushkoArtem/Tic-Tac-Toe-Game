@@ -1,24 +1,24 @@
-h1{
+h1 {
     text-align: center;
     font-family: 'Arial', cursive;
     color: antiquewhite;
     font-size: xxx-large;
 }
 
-h2{
+h2 {
     text-align: center;
     font-family: 'Arial', cursive;
     color: antiquewhite;
     font-size: xx-large;
 }
 
-body{
+body {
     background-color: #9999CC;
 }
 
-.game_type{
+.main_page_table {
     text-align: center;
-    color: antiquewhite;
+    margin: auto;
 }
 
 .game_type_button {
@@ -31,7 +31,7 @@ body{
     background-color: antiquewhite;
 }
 
-.game_statistic{
+.game_statistic {
     width: 30%;
     text-align: center;
     font-family: 'Arial', cursive;
