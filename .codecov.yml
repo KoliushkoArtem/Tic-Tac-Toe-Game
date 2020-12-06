@@ -3,7 +3,7 @@ codecov:
   disable_default_path_fixes: false
 
 fixes:
-  - "/src/main/java/::"
+  - "/src/main/java/com/neven/ticTacToeGame/::"
 
 
 coverage:

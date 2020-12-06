@@ -1,7 +1,7 @@
-package com.neven.TicTacToeGame.controller;
+package com.neven.ticTacToeGame.controller;
 
-import com.neven.TicTacToeGame.entity.Statistic;
-import com.neven.TicTacToeGame.service.StatisticService;
+import com.neven.ticTacToeGame.entity.Statistic;
+import com.neven.ticTacToeGame.service.StatisticService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.ui.ModelMap;

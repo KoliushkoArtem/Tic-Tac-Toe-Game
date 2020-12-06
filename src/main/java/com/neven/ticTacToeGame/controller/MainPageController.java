@@ -1,7 +1,7 @@
-package com.neven.TicTacToeGame.controller;
+package com.neven.ticTacToeGame.controller;
 
-import com.neven.TicTacToeGame.entity.Statistic;
-import com.neven.TicTacToeGame.service.StatisticService;
+import com.neven.ticTacToeGame.entity.Statistic;
+import com.neven.ticTacToeGame.service.StatisticService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

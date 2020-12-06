@@ -1,4 +1,4 @@
-package com.neven.TicTacToeGame.entity;
+package com.neven.ticTacToeGame.entity;
 
 import lombok.Data;
 

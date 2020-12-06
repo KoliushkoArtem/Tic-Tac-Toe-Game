@@ -1,7 +1,7 @@
-package com.neven.TicTacToeGame.service;
+package com.neven.ticTacToeGame.service;
 
-import com.neven.TicTacToeGame.entity.Statistic;
-import com.neven.TicTacToeGame.repository.StatisticRepository;
+import com.neven.ticTacToeGame.entity.Statistic;
+import com.neven.ticTacToeGame.repository.StatisticRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

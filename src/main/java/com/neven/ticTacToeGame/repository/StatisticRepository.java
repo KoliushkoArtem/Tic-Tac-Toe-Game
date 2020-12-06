@@ -1,6 +1,6 @@
-package com.neven.TicTacToeGame.repository;
+package com.neven.ticTacToeGame.repository;
 
-import com.neven.TicTacToeGame.entity.Statistic;
+import com.neven.ticTacToeGame.entity.Statistic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
