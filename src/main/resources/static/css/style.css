@@ -38,3 +38,24 @@ body {
     color: antiquewhite;
     font-size: xxx-large;
 }
+
+.game_field_table {
+    text-align: center;
+    margin: auto;
+    padding: 10px 10px;
+}
+
+.cell_300 {
+    width: 300px;
+}
+
+.button_600 {
+    margin: auto;
+    border-radius: 12px;
+    height: 40px;
+    width: 600px;
+    text-align: center;
+    color: navy;
+    font-family: 'Arial', cursive;
+    background-color: antiquewhite;
+}

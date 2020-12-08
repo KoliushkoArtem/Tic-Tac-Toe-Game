@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # Tic Tac Toe Game Center
+# Application is in development mode
 ### This application is the simple game Tic Tac Toe
 ### Application has 3 different modes of game:
 Player VS Player<br>

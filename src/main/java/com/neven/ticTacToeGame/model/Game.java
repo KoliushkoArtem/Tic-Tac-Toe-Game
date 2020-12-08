@@ -18,7 +18,7 @@ public abstract class Game {
     private boolean draw = false;
     private boolean incorrectMove = false;
 
-    protected Map<Integer, String> cells = new TreeMap<>();
+    public Map<Integer, String> cells = new TreeMap<>();
 
     public Game(String player_2) {
         this.player2 = player_2;
@@ -37,7 +37,7 @@ public abstract class Game {
         }
     }
 
-    boolean isPlayerWin(String player) {
+    public boolean isPlayerWin(String player) {
         boolean line_1 = cells.get(1).equals(player) && cells.get(2).equals(player) && cells.get(3).equals(player);
         boolean line_2 = cells.get(4).equals(player) && cells.get(5).equals(player) && cells.get(6).equals(player);
         boolean line_3 = cells.get(7).equals(player) && cells.get(8).equals(player) && cells.get(9).equals(player);
@@ -50,7 +50,7 @@ public abstract class Game {
         return line_1 || line_2 || line_3 || line_4 || line_5 || line_6 || line_7 || line_8;
     }
 
-    boolean isDraw() {
+    public boolean isDraw() {
         return !cells.containsValue(emptyCell);
     }
 

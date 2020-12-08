@@ -9,7 +9,7 @@ public class PlayerVsPlayerGame extends Game {
     }
 
     @Override
-    public Game winningCheckAndMakingMove(int cellNumber) {
+    public PlayerVsPlayerGame winningCheckAndMakingMove(int cellNumber) {
         if (cells.get(cellNumber).equals(getEmptyCell())) {
             cells.put(cellNumber, getCurrentPlayer());
         } else {
