@@ -7,8 +7,16 @@
 </head>
 <body>
 <c:choose>
-    <c:when test="${game.player1win}">
-        <h1>Player 1 WIN<br>Congratulations</h1>
+    <c:when test="${game.player1win || game.player2win || game.draw}">
+        <c:if test="${game.player1win}">
+            <h1>Player 1 WIN<br>Congratulations</h1>
+        </c:if>
+        <c:if test="${game.player2win}">
+            <h1>Player 2 WIN<br>Congratulations</h1>
+        </c:if>
+        <c:if test="${game.draw}">
+            <h1>There is no winner<br></h1>
+        </c:if>
         <div>
             <table class="game_field_table">
                 <tr>
@@ -29,394 +37,52 @@
         <div>
             <table class="game_field_table">
                 <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(1).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(1).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(2).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(2).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(3).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(3).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
+                    <c:forEach var="counter" begin="1" end="3">
+                        <th>
+                            <c:choose>
+                                <c:when test="${game.cells[counter].equals(game.player1)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:when test="${game.cells[counter].equals(game.player2)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
+                                         height="150">
+                                </c:when>
+                            </c:choose>
+                        </th>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(4).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(4).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(5).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(5).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(6).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(6).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
+                    <c:forEach var="counter" begin="4" end="6">
+                        <th>
+                            <c:choose>
+                                <c:when test="${game.cells[counter].equals(game.player1)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:when test="${game.cells[counter].equals(game.player2)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
+                                         height="150">
+                                </c:when>
+                            </c:choose>
+                        </th>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(7).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(7).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(8).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(8).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(9).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(9).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                </tr>
-            </table>
-        </div>
-    </c:when>
-    <c:when test="${game.player2win}">
-        <h1>Player 2 WIN<br>Congratulations</h1>
-        <div>
-            <table class="game_field_table">
-                <tr>
-                    <th>
-                        <form method="get" action="${pageContext.request.contextPath}/game/players">
-                            <button type="submit" class="button_600">New Game</button>
-                        </form>
-                    </th>
-                    <th>
-                        <form method="get" action="${pageContext.request.contextPath}/">
-                            <button type="submit" class="button_600">Main Page</button>
-                        </form>
-                    </th>
-                </tr>
-            </table>
-        </div>
-        <br>
-        <div>
-            <table class="game_field_table">
-                <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(1).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(1).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(2).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(2).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(3).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(3).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(4).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(4).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(5).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(5).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(6).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(6).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(7).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(7).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(8).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(8).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(9).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(9).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                </tr>
-            </table>
-        </div>
-    </c:when>
-    <c:when test="${game.draw}">
-        <h1>There is no winner</h1>
-        <div>
-            <table class="game_field_table">
-                <tr>
-                    <th>
-                        <form method="get" action="${pageContext.request.contextPath}/game/players">
-                            <button type="submit" class="button_600">New Game</button>
-                        </form>
-                    </th>
-                    <th>
-                        <form method="get" action="${pageContext.request.contextPath}/">
-                            <button type="submit" class="button_600">Main Page</button>
-                        </form>
-                    </th>
-                </tr>
-            </table>
-        </div>
-        <br>
-        <div>
-            <table class="game_field_table">
-                <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(1).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(1).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(2).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(2).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(3).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(3).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(4).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(4).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(5).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(5).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(6).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(6).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(7).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(7).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(8).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(8).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(9).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(9).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                        </c:choose>
-                    </th>
+                    <c:forEach var="counter" begin="7" end="9">
+                        <th>
+                            <c:choose>
+                                <c:when test="${game.cells[counter].equals(game.player1)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:when test="${game.cells[counter].equals(game.player2)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
+                                         height="150">
+                                </c:when>
+                            </c:choose>
+                        </th>
+                    </c:forEach>
                 </tr>
             </table>
         </div>
@@ -438,172 +104,70 @@
         <div>
             <table class="game_field_table">
                 <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(1).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(1).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="1">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(2).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(2).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="2">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(3).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(3).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="3">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
+                    <c:forEach var="counter" begin="1" end="3">
+                        <th>
+                            <c:choose>
+                                <c:when test="${game.cells[counter].equals(game.player1)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:when test="${game.cells[counter].equals(game.player2)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:otherwise>
+                                    <form method="post" action="${pageContext.request.contextPath}/game/players">
+                                        <input type="hidden" name="cell" value="${counter}">
+                                        <button type="submit" class="game_type_button"></button>
+                                    </form>
+                                </c:otherwise>
+                            </c:choose>
+                        </th>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(4).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(4).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="4">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(5).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(5).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="5">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(6).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(6).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="6">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
+                    <c:forEach var="counter" begin="4" end="6">
+                        <th>
+                            <c:choose>
+                                <c:when test="${game.cells[counter].equals(game.player1)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:when test="${game.cells[counter].equals(game.player2)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:otherwise>
+                                    <form method="post" action="${pageContext.request.contextPath}/game/players">
+                                        <input type="hidden" name="cell" value="${counter}">
+                                        <button type="submit" class="game_type_button"></button>
+                                    </form>
+                                </c:otherwise>
+                            </c:choose>
+                        </th>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(7).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(7).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="7">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(8).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(8).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="8">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
-                    <th>
-                        <c:choose>
-                            <c:when test="${game.cells[(9).intValue()].equals(game.player1)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:when test="${game.cells[(9).intValue()].equals(game.player2)}">
-                                <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
-                                     height="150">
-                            </c:when>
-                            <c:otherwise>
-                                <form method="post" action="${pageContext.request.contextPath}/game/players">
-                                    <input type="hidden" name="cell" value="9">
-                                    <button type="submit" class="game_type_button"></button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </th>
+                    <c:forEach var="counter" begin="7" end="9">
+                        <th>
+                            <c:choose>
+                                <c:when test="${game.cells[counter].equals(game.player1)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:when test="${game.cells[counter].equals(game.player2)}">
+                                    <img alt="x" src="${pageContext.request.contextPath}/image/o.png" width="150"
+                                         height="150">
+                                </c:when>
+                                <c:otherwise>
+                                    <form method="post" action="${pageContext.request.contextPath}/game/players">
+                                        <input type="hidden" name="cell" value="${counter}">
+                                        <button type="submit" class="game_type_button"></button>
+                                    </form>
+                                </c:otherwise>
+                            </c:choose>
+                        </th>
+                    </c:forEach>
                 </tr>
             </table>
         </div>
