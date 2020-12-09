@@ -87,4 +87,14 @@ class PlayerVsPlayerGameTest {
         assertFalse(resultGame.isPlayer2win());
         assertTrue(resultGame.isDraw());
     }
+
+    @Test
+    @DisplayName(value = "When call makeFirstMove medthod assert that corrent player will br changed and game will be returned")
+    void makeFirstMove() {
+        assertEquals(testGame.getPlayer1(), testGame.getCurrentPlayer());
+
+        Game gameResult = testGame.makeFirstMove();
+
+        assertEquals(testGame.getPlayer2(), testGame.getCurrentPlayer());
+    }
 }

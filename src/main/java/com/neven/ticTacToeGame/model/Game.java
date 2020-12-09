@@ -55,4 +55,5 @@ public abstract class Game {
     }
 
     public abstract Game winningCheckAndMakingMove(int cellNumber);
+    public abstract Game makeFirstMove();
 }

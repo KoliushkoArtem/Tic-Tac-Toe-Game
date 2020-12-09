@@ -17,6 +17,11 @@ class GameTest {
             public Game winningCheckAndMakingMove(int cellNumber) {
                 return null;
             }
+
+            @Override
+            public Game makeFirstMove() {
+                return null;
+            }
         };
     }
 

@@ -12,4 +12,9 @@ public class PlayerVsRandomGame extends Game {
     public Game winningCheckAndMakingMove(int cellNumber) {
         return null;
     }
+
+    @Override
+    public Game makeFirstMove() {
+        return null;
+    }
 }

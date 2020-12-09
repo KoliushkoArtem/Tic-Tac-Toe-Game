@@ -35,4 +35,10 @@ public class PlayerVsPlayerGame extends Game {
         switchCurrentPlayer();
         return this;
     }
+
+    @Override
+    public Game makeFirstMove() {
+        switchCurrentPlayer();
+        return this;
+    }
 }
