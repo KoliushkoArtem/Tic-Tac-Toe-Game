@@ -3,17 +3,17 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <html>
 <head>
-    <title>Player VS Player</title>
+    <title>Player VS Random</title>
 </head>
 <body>
 <c:choose>
     <c:when test="${game.player1win || game.player2win || game.draw}">
         <c:choose>
             <c:when test="${game.player1win}">
-                <h1>Player 1 WIN<br>Congratulations</h1>
+                <h1>You WIN<br>Congratulations</h1>
             </c:when>
             <c:when test="${game.player2win}">
-                <h1>Player 2 WIN<br>Sometimes Happens</h1>
+                <h1>Random WIN<br>Sometimes Happens</h1>
             </c:when>
             <c:when test="${game.draw}">
                 <h1>There is no winner<br><br></h1>
@@ -23,7 +23,7 @@
             <table class="game_field_table">
                 <tr>
                     <th>
-                        <form method="get" action="${pageContext.request.contextPath}/game/players">
+                        <form method="get" action="${pageContext.request.contextPath}/game/random">
                             <button type="submit" class="button_600">New Game</button>
                         </form>
                     </th>
@@ -65,8 +65,8 @@
         <div>
             <table class="game_field_table">
                 <tr>
-                    <td class="cell_300"><h1>Player 1</h1></td>
-                    <td class="cell_300"><h1>Player 2</h1></td>
+                    <td class="cell_300"><h1>You</h1></td>
+                    <td class="cell_300"><h1>Random</h1></td>
                 </tr>
                 <tr>
                     <th><img alt="x" src="${pageContext.request.contextPath}/image/x.png" width="70" height="70"></th>
@@ -93,7 +93,7 @@
                                              height="150">
                                     </c:when>
                                     <c:otherwise>
-                                        <form method="post" action="${pageContext.request.contextPath}/game/players">
+                                        <form method="post" action="${pageContext.request.contextPath}/game/random">
                                             <input type="hidden" name="cell" value="${tr + th}">
                                             <button type="submit" class="game_type_button"></button>
                                         </form>
