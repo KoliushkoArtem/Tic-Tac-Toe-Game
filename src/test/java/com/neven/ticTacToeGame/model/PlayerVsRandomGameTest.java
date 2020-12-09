@@ -6,24 +6,23 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PlayerVsPlayerGameTest {
+class PlayerVsRandomGameTest {
 
     private Game testGame;
 
     @BeforeEach
     void setUp() {
-        this.testGame = new PlayerVsPlayerGame();
+        this.testGame = new PlayerVsRandomGame();
     }
 
     @Test
-    @DisplayName(value = "When call winningCheckAndMakingMove method with empty cell number to make a move assert that incorrectMove will be false and cell will be filled by current player")
+    @DisplayName(value = "When call winningCheckAndMakingMove method with empty cell number to make a move assert that incorrectMove will be false and cell will be filled by player 1")
     void whenMoveIsCorrect() {
-        String currentPlayer = testGame.getCurrentPlayer();
         assertFalse(testGame.isIncorrectMove());
         Game result = testGame.winningCheckAndMakingMove(1);
 
         assertFalse(result.isIncorrectMove());
-        assertEquals(currentPlayer, testGame.getCells().get(1));
+        assertEquals(testGame.getPlayer1(), testGame.getCells().get(1));
     }
 
     @Test
@@ -53,15 +52,19 @@ class PlayerVsPlayerGameTest {
     @Test
     @DisplayName(value = "When call winningCheckAndMakingMove method and player 2 win")
     void player2Win() {
-        String player2 = testGame.getPlayer2();
-        testGame.setCurrentPlayer(player2);
-        testGame.getCells().put(1, player2);
-        testGame.getCells().put(2, player2);
         assertFalse(testGame.isPlayer2win());
 
-        Game resultGame = testGame.winningCheckAndMakingMove(3);
+        testGame.getCells().put(1, testGame.getPlayer1());
+        testGame.getCells().put(2, testGame.getPlayer1());
+        testGame.getCells().put(3, testGame.getPlayer2());
+        testGame.getCells().put(4, testGame.getPlayer2());
+        testGame.getCells().put(5, testGame.getPlayer2());
+        testGame.getCells().put(6, testGame.getPlayer1());
+        testGame.getCells().put(9, testGame.getPlayer1());
 
-        assertTrue(resultGame.isPlayer2win());
+        Game gameResult = testGame.winningCheckAndMakingMove(8);
+
+        assertTrue(gameResult.isPlayer2win());
     }
 
     @Test
@@ -74,8 +77,7 @@ class PlayerVsPlayerGameTest {
         testGame.getCells().put(5, testGame.getPlayer2());
         testGame.getCells().put(6, testGame.getPlayer1());
         testGame.getCells().put(7, testGame.getPlayer1());
-        testGame.getCells().put(8, testGame.getPlayer1());
-        testGame.setCurrentPlayer(testGame.getPlayer2());
+        testGame.getCells().put(8, testGame.getPlayer2());
 
         assertFalse(testGame.isPlayer1win());
         assertFalse(testGame.isPlayer2win());
@@ -89,12 +91,12 @@ class PlayerVsPlayerGameTest {
     }
 
     @Test
-    @DisplayName(value = "When call makeFirstMove method assert that current player will br changed and game will be returned")
+    @DisplayName(value = "When call makeFirstMove method assert that sell will be randomly filled  by player 2 and game will be returned")
     void makeFirstMove() {
-        assertEquals(testGame.getPlayer1(), testGame.getCurrentPlayer());
+        assertFalse(testGame.getCells().containsValue(testGame.getPlayer2()));
 
         Game gameResult = testGame.makeFirstMove();
 
-        assertEquals(gameResult.getPlayer2(), testGame.getCurrentPlayer());
+        assertTrue(gameResult.getCells().containsValue(testGame.getPlayer2()));
     }
 }
