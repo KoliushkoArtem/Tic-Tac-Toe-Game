@@ -1,5 +1,6 @@
 package com.neven.ticTacToeGame.controller;
 
+import com.neven.ticTacToeGame.model.Game;
 import com.neven.ticTacToeGame.model.PlayerVsPlayerGame;
 import com.neven.ticTacToeGame.utils.GameTypes;
 import com.neven.ticTacToeGame.utils.GamesFactory;
@@ -19,10 +20,10 @@ public class PlayerVsPlayerController {
     }
 
     @PostMapping
-    ModelAndView game(Model model, @RequestParam(value = "cell") int cell){
+    ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
         Object game = model.getAttribute("game");
         if (game instanceof PlayerVsPlayerGame) {
-            PlayerVsPlayerGame playerVsPlayerGame = ((PlayerVsPlayerGame) game).winningCheckAndMakingMove(cell);
+            Game playerVsPlayerGame = ((PlayerVsPlayerGame) game).winningCheckAndMakingMove(cell);
             return new ModelAndView("players", "game", playerVsPlayerGame);
         } else {
             return new ModelAndView("players", "game", GamesFactory.getGame(GameTypes.PLAYER_VS_PLAYER));
