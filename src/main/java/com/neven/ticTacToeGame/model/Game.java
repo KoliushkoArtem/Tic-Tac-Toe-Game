@@ -29,6 +29,50 @@ public abstract class Game {
         }
     }
 
+    public Game winningCheckAndMakingMove(int cellNumber){
+        if (cells.get(cellNumber).equals(getEmptyCell())) {
+            if (currentPlayer.equals(player1)){
+                cells.put(cellNumber, getPlayer1());
+            } else {
+                cells.put(cellNumber, getPlayer2());
+            }
+        } else {
+            setIncorrectMove(true);
+            return this;
+        }
+
+        if (isPlayerWin(currentPlayer)) {
+            setWinner(currentPlayer);
+            return this;
+        }
+
+        if (isDraw()) {
+            setDraw(true);
+            return this;
+        }
+
+        if (this instanceof PlayerVsPlayerGame) {
+            makeMove();
+        } else {
+            switchCurrentPlayer();
+            makeMove();
+
+            if (isPlayerWin(currentPlayer)) {
+                setWinner(currentPlayer);
+                return this;
+            }
+
+            if (isDraw()) {
+                setDraw(true);
+                return this;
+            }
+
+            switchCurrentPlayer();
+        }
+
+        return this;
+    }
+
     protected void switchCurrentPlayer() {
         if (currentPlayer.equals(player1)) {
             setCurrentPlayer(player2);
@@ -37,7 +81,7 @@ public abstract class Game {
         }
     }
 
-    public boolean isPlayerWin(String player) {
+    protected boolean isPlayerWin(String player) {
         boolean line_1 = cells.get(1).equals(player) && cells.get(2).equals(player) && cells.get(3).equals(player);
         boolean line_2 = cells.get(4).equals(player) && cells.get(5).equals(player) && cells.get(6).equals(player);
         boolean line_3 = cells.get(7).equals(player) && cells.get(8).equals(player) && cells.get(9).equals(player);
@@ -50,10 +94,21 @@ public abstract class Game {
         return line_1 || line_2 || line_3 || line_4 || line_5 || line_6 || line_7 || line_8;
     }
 
+    private void setWinner(String currentPlayer){
+        if (currentPlayer.equals(player1)) {
+            setPlayer1win(true);
+        }
+
+        if (currentPlayer.equals(player2)) {
+            setPlayer2win(true);
+        }
+    }
+
     public boolean isDraw() {
         return !cells.containsValue(emptyCell);
     }
 
-    public abstract Game winningCheckAndMakingMove(int cellNumber);
     public abstract Game makeFirstMove();
+
+    protected abstract void makeMove();
 }

@@ -14,13 +14,13 @@ class GameTest {
     void setUp() {
         testGame = new Game("test_Player_2") {
             @Override
-            public Game winningCheckAndMakingMove(int cellNumber) {
+            public Game makeFirstMove() {
                 return null;
             }
 
             @Override
-            public Game makeFirstMove() {
-                return null;
+            protected void makeMove() {
+
             }
         };
     }
@@ -73,7 +73,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("When call isPlayerWin method with correct filled line 1 assert method return true")
+    @DisplayName("When call isPlayerWin method with correct filled line 1(cells 1, 2, 3) assert method return true")
     void isPlayerWinLine1() {
         putWinningLineInACells(1, 2, 3, testGame.getPlayer1());
 
@@ -88,7 +88,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("When call isPlayerWin method with correct filled line 1 assert method return true")
+    @DisplayName("When call isPlayerWin method with correct filled line 2(cells 4, 5, 6) assert method return true")
     void isPlayerWinLine2() {
         putWinningLineInACells(4, 5, 6, testGame.getPlayer1());
 
@@ -103,7 +103,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("When call isPlayerWin method with correct filled line 1 assert method return true")
+    @DisplayName("When call isPlayerWin method with correct filled line 3(cells 7, 8, 9) assert method return true")
     void isPlayerWinLine3() {
         putWinningLineInACells(7, 8, 9, testGame.getPlayer1());
 
@@ -118,7 +118,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("When call isPlayerWin method with correct filled line 1 assert method return true")
+    @DisplayName("When call isPlayerWin method with correct filled line 4(cells 1, 4, 7) assert method return true")
     void isPlayerWinLine4() {
         putWinningLineInACells(1, 4, 7, testGame.getPlayer1());
 
@@ -133,7 +133,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("When call isPlayerWin method with correct filled line 1 assert method return true")
+    @DisplayName("When call isPlayerWin method with correct filled line 5(cells 2, 5, 8) assert method return true")
     void isPlayerWinLine5() {
         putWinningLineInACells(2, 5, 8, testGame.getPlayer1());
 
@@ -148,7 +148,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("When call isPlayerWin method with correct filled line 1 assert method return true")
+    @DisplayName("When call isPlayerWin method with correct filled line 6(cells 3, 6, 9) assert method return true")
     void isPlayerWinLine6() {
         putWinningLineInACells(3, 6, 9, testGame.getPlayer1());
 
@@ -163,7 +163,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("When call isPlayerWin method with correct filled line 1 assert method return true")
+    @DisplayName("When call isPlayerWin method with correct filled line 7(cells 1, 5, 9) assert method return true")
     void isPlayerWinLine7() {
         putWinningLineInACells(1, 5, 9, testGame.getPlayer1());
 
@@ -178,7 +178,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("When call isPlayerWin method with correct filled line 1 assert method return true")
+    @DisplayName("When call isPlayerWin method with correct filled line 8(cells 3, 5, 7) assert method return true")
     void isPlayerWinLine8() {
         putWinningLineInACells(3, 5, 7, testGame.getPlayer1());
 

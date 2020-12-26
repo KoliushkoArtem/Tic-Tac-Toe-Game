@@ -12,40 +12,6 @@ public class PlayerVsAlgorithmGame extends Game {
     }
 
     @Override
-    public Game winningCheckAndMakingMove(int cellNumber) {
-        if (cells.get(cellNumber).equals(getEmptyCell())) {
-            cells.put(cellNumber, getPlayer1());
-        } else {
-            setIncorrectMove(true);
-            return this;
-        }
-
-        if (isPlayerWin(getPlayer1())) {
-            setPlayer1win(true);
-            return this;
-        }
-
-        if (isDraw()) {
-            setDraw(true);
-            return this;
-        }
-
-        makeMove();
-
-        if (isPlayerWin(getPlayer2())) {
-            setPlayer2win(true);
-            return this;
-        }
-
-        if (isDraw()) {
-            setDraw(true);
-            return this;
-        }
-
-        return this;
-    }
-
-    @Override
     public Game makeFirstMove() {
         int firstMove = new Random().nextInt(4) + 1;
         switch (firstMove) {
@@ -66,7 +32,8 @@ public class PlayerVsAlgorithmGame extends Game {
         }
     }
 
-    private void makeMove() {
+    @Override
+    protected void makeMove() {
         MiniMaxAlgorithm algorithm = new MiniMaxAlgorithm(this);
         int bestMove = algorithm.findBestMove();
         if (cells.get(bestMove).equals(getEmptyCell())) {

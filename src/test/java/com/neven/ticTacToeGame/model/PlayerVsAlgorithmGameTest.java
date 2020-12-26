@@ -95,11 +95,13 @@ class PlayerVsAlgorithmGameTest {
     void makeFirstMove() {
         assertFalse(testGame.getCells().containsValue(testGame.getPlayer2()));
 
-        Game gameResult = testGame.makeFirstMove();
+        for (int i = 0; i < 20; i++) {
+            Game gameResult = testGame.makeFirstMove();
 
-        assertTrue(gameResult.getCells().get(1).equals(gameResult.getPlayer2())
-                || gameResult.getCells().get(3).equals(gameResult.getPlayer2())
-                || gameResult.getCells().get(7).equals(gameResult.getPlayer2())
-                || gameResult.getCells().get(9).equals(gameResult.getPlayer2()));
+            assertTrue(gameResult.getCells().get(1).equals(gameResult.getPlayer2())
+                    || gameResult.getCells().get(3).equals(gameResult.getPlayer2())
+                    || gameResult.getCells().get(7).equals(gameResult.getPlayer2())
+                    || gameResult.getCells().get(9).equals(gameResult.getPlayer2()));
+        }
     }
 }

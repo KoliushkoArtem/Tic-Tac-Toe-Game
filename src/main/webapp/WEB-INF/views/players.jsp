@@ -13,7 +13,7 @@
                 <h1>Player 1 WIN<br>Congratulations</h1>
             </c:when>
             <c:when test="${game.player2win}">
-                <h1>Player 2 WIN<br>Sometimes Happens</h1>
+                <h1>Player 2 WIN<br>Congratulations</h1>
             </c:when>
             <c:when test="${game.draw}">
                 <h1>There is no winner<br><br></h1>
