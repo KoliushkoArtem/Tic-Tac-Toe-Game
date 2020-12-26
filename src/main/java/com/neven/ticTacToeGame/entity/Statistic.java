@@ -24,4 +24,8 @@ public class Statistic {
     private long algorithmWin = 0;
 
     private long draw = 0;
+
+    public Long getTotalGames() {
+        return playerWin + algorithmWin + draw;
+    }
 }
