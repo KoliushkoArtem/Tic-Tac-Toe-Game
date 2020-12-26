@@ -16,8 +16,7 @@
                 </form>
             <th>
                 <form method="get" action="${pageContext.request.contextPath}/game/algorithm">
-                    <button type="submit" class="game_type_button">Player<br><br>VS<br><br>Algorithm<br>(HARD MODE)
-                    </button>
+                    <button type="submit" class="game_type_button">Player<br><br>VS<br><br>Algorithm<br>(MiniMax)<br>HARD MODE</button>
                 </form>
             </th>
             <th>
@@ -28,7 +27,7 @@
         </tr>
     </table>
 </div>
-<h1>Statistic for games with Algorithm</h1>
+<h1>Statistic for games with an Algorithm</h1>
 <div>
     <table class="main_page_table">
         <tr>
@@ -40,6 +39,15 @@
             <td class="game_statistic">${statistic.algorithmWin}</td>
             <td class="game_statistic">${statistic.playerWin}</td>
             <td class="game_statistic">${statistic.draw}</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <table class="main_page_table">
+        <tr>
+            <th class="game_statistic_total">Total games with an Algorithm played</th>
+        <tr>
+            <td class="game_statistic_total">${statistic.totalGames}</td>
         </tr>
     </table>
 </div>

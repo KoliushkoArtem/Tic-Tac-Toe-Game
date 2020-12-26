@@ -39,6 +39,14 @@ body {
     font-size: xxx-large;
 }
 
+.game_statistic_total {
+    width: 100%;
+    text-align: center;
+    font-family: 'Arial', cursive;
+    color: antiquewhite;
+    font-size: xxx-large;
+}
+
 .game_field_table {
     text-align: center;
     margin: auto;

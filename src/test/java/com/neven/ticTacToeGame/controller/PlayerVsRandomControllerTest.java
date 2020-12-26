@@ -37,7 +37,7 @@ class PlayerVsRandomControllerTest {
         assertFalse(gameResult.getCells().containsValue(gameResult.getPlayer1()));
         assertFalse(gameResult.getCells().containsValue(gameResult.getPlayer2()));
         assertTrue(gameResult.getCells().containsValue(gameResult.getEmptyCell()));
-
+        assertEquals(result.getViewName(), "random");
     }
 
     @Test

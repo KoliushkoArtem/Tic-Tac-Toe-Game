@@ -13,10 +13,10 @@ public abstract class Game {
     private final String emptyCell = "empty";
     private String currentPlayer;
 
-    private boolean player1win = false;
-    private boolean player2win = false;
-    private boolean draw = false;
-    private boolean incorrectMove = false;
+    public boolean player1win = false;
+    public boolean player2win = false;
+    public boolean draw = false;
+    public boolean incorrectMove = false;
 
     public Map<Integer, String> cells = new TreeMap<>();
 
@@ -46,7 +46,7 @@ public abstract class Game {
             return this;
         }
 
-        if (isDraw()) {
+        if (isItDraw()) {
             setDraw(true);
             return this;
         }
@@ -62,7 +62,7 @@ public abstract class Game {
                 return this;
             }
 
-            if (isDraw()) {
+            if (isItDraw()) {
                 setDraw(true);
                 return this;
             }
@@ -104,7 +104,7 @@ public abstract class Game {
         }
     }
 
-    public boolean isDraw() {
+    public boolean isItDraw() {
         return !cells.containsValue(emptyCell);
     }
 

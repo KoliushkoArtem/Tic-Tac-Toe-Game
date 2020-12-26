@@ -48,6 +48,5 @@ class PlayerVsPlayerControllerTest {
         ModelMap resultModelMap = modelAndViewToTest.getModelMap();
 
         assertTrue(resultModelMap.containsKey(sessionAttributeGameName));
-        assertNotEquals(modelAndViewToTest, resultModelMap.get(sessionAttributeGameName));
     }
 }

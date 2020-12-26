@@ -62,7 +62,7 @@ class GameTest {
         assertFalse(testGame.isDraw());
         testGame.getCells().forEach((k, v) -> testGame.getCells().put(k, testGame.getCurrentPlayer()));
 
-        assertTrue(testGame.isDraw());
+        assertTrue(testGame.isItDraw());
     }
 
     @Test
