@@ -110,7 +110,15 @@ class PlayerVsAlgorithmControllerTest {
     @DisplayName(value = "When game() method with finished game, assert that statistic will be updated")
     void gameStatisticUpdate() {
         PlayerVsAlgorithmGame gameToTest = new PlayerVsAlgorithmGame();
-        gameToTest.setDraw(true);
+        gameToTest.getCells().put(1, gameToTest.getPlayer1());
+        gameToTest.getCells().put(2, gameToTest.getPlayer1());
+        gameToTest.getCells().put(3, gameToTest.getPlayer2());
+        gameToTest.getCells().put(4, gameToTest.getPlayer2());
+        gameToTest.getCells().put(5, gameToTest.getPlayer2());
+        gameToTest.getCells().put(6, gameToTest.getPlayer1());
+        gameToTest.getCells().put(7, gameToTest.getPlayer1());
+        gameToTest.getCells().put(8, gameToTest.getPlayer2());
+        gameToTest.winningCheckAndMakingMove(9);
         Statistic statisticToTest = new Statistic();
         when(modelMock.getAttribute(sessionAttributeGameName)).thenReturn(gameToTest);
         when(statisticServiceMock.getStatistic()).thenReturn(statisticToTest);

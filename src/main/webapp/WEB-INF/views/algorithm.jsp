@@ -15,7 +15,7 @@
             <c:when test="${game.player2win}">
                 <h1>MiniMax WIN<br>It should be happened</h1>
             </c:when>
-            <c:when test="${game.itDraw}">
+            <c:when test="${game.draw}">`
                 <h1>There is no winner<br>You are pretty good in this game ;)</h1>
             </c:when>
         </c:choose>

@@ -1,6 +1,9 @@
 package com.neven.ticTacToeGame.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -11,14 +14,18 @@ public abstract class Game {
     private final String player1 = "user_1";
     private final String player2;
     private final String emptyCell = "empty";
+    @Setter(value = AccessLevel.PROTECTED)
     private String currentPlayer;
-
-    public boolean player1win = false;
-    public boolean player2win = false;
-    public boolean draw = false;
-    public boolean incorrectMove = false;
-
-    public Map<Integer, String> cells = new TreeMap<>();
+    @Setter(value = AccessLevel.PROTECTED)
+    private boolean player1win = false;
+    @Setter(value = AccessLevel.PROTECTED)
+    private boolean player2win = false;
+    @Setter(value = AccessLevel.PROTECTED)
+    private boolean draw = false;
+    @Setter(value = AccessLevel.PROTECTED)
+    private boolean incorrectMove = false;
+    @Setter(value = AccessLevel.PRIVATE)
+    private Map<Integer, String> cells = new TreeMap<>();
 
     public Game(String player_2) {
         this.player2 = player_2;
@@ -29,9 +36,9 @@ public abstract class Game {
         }
     }
 
-    public Game winningCheckAndMakingMove(int cellNumber){
+    public Game winningCheckAndMakingMove(int cellNumber) {
         if (cells.get(cellNumber).equals(getEmptyCell())) {
-            if (currentPlayer.equals(player1)){
+            if (currentPlayer.equals(player1)) {
                 cells.put(cellNumber, getPlayer1());
             } else {
                 cells.put(cellNumber, getPlayer2());
@@ -42,7 +49,7 @@ public abstract class Game {
         }
 
         if (isPlayerWin(currentPlayer)) {
-            setWinner(currentPlayer);
+            setWinner();
             return this;
         }
 
@@ -58,7 +65,7 @@ public abstract class Game {
             makeMove();
 
             if (isPlayerWin(currentPlayer)) {
-                setWinner(currentPlayer);
+                setWinner();
                 return this;
             }
 
@@ -81,7 +88,7 @@ public abstract class Game {
         }
     }
 
-    protected boolean isPlayerWin(String player) {
+    protected boolean isPlayerWin(@NotNull String player) {
         boolean line_1 = cells.get(1).equals(player) && cells.get(2).equals(player) && cells.get(3).equals(player);
         boolean line_2 = cells.get(4).equals(player) && cells.get(5).equals(player) && cells.get(6).equals(player);
         boolean line_3 = cells.get(7).equals(player) && cells.get(8).equals(player) && cells.get(9).equals(player);
@@ -94,7 +101,7 @@ public abstract class Game {
         return line_1 || line_2 || line_3 || line_4 || line_5 || line_6 || line_7 || line_8;
     }
 
-    private void setWinner(String currentPlayer){
+    private void setWinner() {
         if (currentPlayer.equals(player1)) {
             setPlayer1win(true);
         }
@@ -104,8 +111,8 @@ public abstract class Game {
         }
     }
 
-    public boolean isItDraw() {
-        return !cells.containsValue(emptyCell);
+    private boolean isItDraw() {
+        return !isPlayerWin(player1) && !isPlayerWin(player2) && !cells.containsValue(emptyCell);
     }
 
     public abstract Game makeFirstMove();

@@ -36,8 +36,8 @@ public class PlayerVsAlgorithmGame extends Game {
     protected void makeMove() {
         MiniMaxAlgorithm algorithm = new MiniMaxAlgorithm(this);
         int bestMove = algorithm.findBestMove();
-        if (cells.get(bestMove).equals(getEmptyCell())) {
-            cells.put(bestMove, getPlayer2());
+        if (getCells().get(bestMove).equals(getEmptyCell())) {
+            getCells().put(bestMove, getPlayer2());
         } else {
             setIncorrectMove(true);
         }

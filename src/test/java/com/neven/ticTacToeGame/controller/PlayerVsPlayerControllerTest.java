@@ -42,7 +42,7 @@ class PlayerVsPlayerControllerTest {
     @DisplayName(value = "When game() method with no session attribute \"game\" assert that in returned model will be attribute PlayerVsPlayerGame.class with key \\\"game\\\"\"")
     void gameSuccessMove() {
         PlayerVsPlayerGame playerVsPlayerGameToTest = new PlayerVsPlayerGame();
-        assertEquals(playerVsPlayerGameToTest.getEmptyCell(), playerVsPlayerGameToTest.cells.get(1));
+        assertEquals(playerVsPlayerGameToTest.getEmptyCell(), playerVsPlayerGameToTest.getCells().get(1));
         when(modelMock.getAttribute(sessionAttributeGameName)).thenReturn(playerVsPlayerGameToTest);
         ModelAndView modelAndViewToTest = controller.game(modelMock, 1);
         ModelMap resultModelMap = modelAndViewToTest.getModelMap();

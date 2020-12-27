@@ -60,9 +60,17 @@ class GameTest {
     @DisplayName(value = "When call isDraw method with no empty cells assert that method return true")
     void isDrawTrue() {
         assertFalse(testGame.isDraw());
-        testGame.getCells().forEach((k, v) -> testGame.getCells().put(k, testGame.getCurrentPlayer()));
+        testGame.getCells().put(1, testGame.getPlayer1());
+        testGame.getCells().put(2, testGame.getPlayer1());
+        testGame.getCells().put(3, testGame.getPlayer2());
+        testGame.getCells().put(4, testGame.getPlayer2());
+        testGame.getCells().put(5, testGame.getPlayer2());
+        testGame.getCells().put(6, testGame.getPlayer1());
+        testGame.getCells().put(7, testGame.getPlayer1());
+        testGame.getCells().put(8, testGame.getPlayer2());
+        testGame.winningCheckAndMakingMove(9);
 
-        assertTrue(testGame.isItDraw());
+        assertTrue(testGame.isDraw());
     }
 
     @Test
