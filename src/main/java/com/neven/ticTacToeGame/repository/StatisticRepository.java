@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface StatisticRepository extends JpaRepository<Statistic, String> {
+public interface StatisticRepository extends JpaRepository<Statistic, Long> {
 
     Optional<Statistic> findByName(String statisticName);
 }
