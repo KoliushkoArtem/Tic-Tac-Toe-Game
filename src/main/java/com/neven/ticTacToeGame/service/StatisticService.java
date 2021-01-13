@@ -24,7 +24,7 @@ public class StatisticService {
     private final StatisticRepository statisticRepository;
 
     /**
-     * Constructor for class {@link StatisticService}.<br/>Initialize {@link StatisticService#statisticRepository} by
+     * Constructor for class {@link StatisticService}.<br>Initialize {@link StatisticService#statisticRepository} by
      * incoming object of {@link StatisticRepository}.
      *
      * @param statisticRepository injection of {@link StatisticRepository}.

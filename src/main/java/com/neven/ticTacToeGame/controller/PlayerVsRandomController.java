@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Class {@code PlayerVsRandomController} is a Spring Boot Controller class witch allow to serve HTTP requests from pages
  * with Player versus Random(randomly filled empty game fields) game.
- * <br/>Path for requests "{pageContext}/game/random"
+ * <br>Path for requests "{pageContext}/game/random"
  *
  * @author Arterm Koliushko
  * @author https://www.linkedin.com/in/artem-koliushko/
@@ -68,7 +68,7 @@ public class PlayerVsRandomController {
      * If {whoStart} parameter will be wrong, {@link ModelAndView} will be returned player versus random game start page name.
      *
      * @param whoStart is a String value with an information who will start the game, "user" or "random".
-     * @return {@link ModelAndView} with name of Player versus Random game page view and {@link PlayerVsRandomGame in model.
+     * @return {@link ModelAndView} with name of Player versus Random game page view and {@link PlayerVsRandomGame} in model.
      */
     @GetMapping(value = "/{whoStart}")
     ModelAndView startGameWithRandom(@PathVariable(name = "whoStart") String whoStart) {

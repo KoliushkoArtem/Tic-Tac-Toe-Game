@@ -35,46 +35,46 @@ public abstract class Game {
      */
     private final String emptyCell = "empty";
     /**
-     * Field which contain {@code String} value of the current user.<br/>Has access level "PROTECTED" for setter.
+     * Field which contain {@code String} value of the current user.<br>Has access level "PROTECTED" for setter.
      */
     @Setter(value = AccessLevel.PROTECTED)
     private String currentPlayer;
     /**
-     * Field which contain {@code Boolean} value is the user is win.<br/>Default value "false".
-     * <br/>Has access level "PROTECTED" for setter.
+     * Field which contain {@code Boolean} value is the user is win.<br>Default value "false".
+     * <br>Has access level "PROTECTED" for setter.
      */
     @Setter(value = AccessLevel.PROTECTED)
     private boolean player1win = false;
     /**
-     * Field which contain {@code Boolean} value is the player 2 is win.<br/>Default value "false".
-     * <br/>Has access level "PROTECTED" for setter.
+     * Field which contain {@code Boolean} value is the player 2 is win.<br>Default value "false".
+     * <br>Has access level "PROTECTED" for setter.
      */
     @Setter(value = AccessLevel.PROTECTED)
     private boolean player2win = false;
     /**
      * Field which contain {@code Boolean} value is the game is finished and game has no winner.
-     * <br/>Default value "false".<br/>Has access level "PROTECTED" for setter.
+     * <br>Default value "false".<br>Has access level "PROTECTED" for setter.
      */
     @Setter(value = AccessLevel.PROTECTED)
     private boolean draw = false;
     /**
      * Field which contain {@code Boolean} value is the move made by user is incorrect.
-     * <br/>Default value "false".<br/>Has access level "PROTECTED" for setter.
+     * <br>Default value "false".<br>Has access level "PROTECTED" for setter.
      */
     @Setter(value = AccessLevel.PROTECTED)
     private boolean incorrectMove = false;
     /**
      * Field with {@code Map<Integer, String>} value, is the {@link java.util.HashMap} which contain
-     * game field cells.<br/>Firs param "{@code Integer}" - is the number of game field (proper values 1-9).
-     * <br/>Second param "{@code String}" - this is param which contain an information about value of game field
+     * game field cells.<br>Firs param "{@code Integer}" - is the number of game field (proper values 1-9).
+     * <br>Second param "{@code String}" - this is param which contain an information about value of game field
      * (proper values {@link Game#player1}, {@link Game#player2}, {@link Game#emptyCell})
-     * <br/>Has access level "PRIVATE" for setter.
+     * <br>Has access level "PRIVATE" for setter.
      */
     @Setter(value = AccessLevel.PRIVATE)
     private Map<Integer, String> cells = new TreeMap<>();
 
     /**
-     * Constructor for class {@link Game}.<br/>Constructor initialized {@link Game#player2} field by incoming param,
+     * Constructor for class {@link Game}.<br>Constructor initialized {@link Game#player2} field by incoming param,
      * {@link Game#currentPlayer} field by {@link Game#player1} value and {@link Game#cells} by filling all game filed
      * with {@link Game#emptyCell}
      *
@@ -91,18 +91,18 @@ public abstract class Game {
 
     /**
      * This method is the main logical method of the game.
-     * <br/>The method is accept incoming param(user move) and check if this game field cell is empty:
-     * <br/>&emsp;-If No, {@link Game#isIncorrectMove()} will be set to "true" and game will be returned.
-     * <br/>&emsp;-If Yes, sell will be filled by the current user.
-     * <br/>Then method will call {@link Game#isPlayerWin(String currentPlayer)} method for check is user does win:
-     * <br/>&emsp;-If Yes, current user will be set as winner and game will be returned.
-     * <br/>Then method will call {@link Game#isItDraw()} method to check did the user move was the last empty game field
+     * <br>The method is accept incoming param(user move) and check if this game field cell is empty:
+     * <br>&emsp;-If No, {@link Game#incorrectMove} will be set to "true" and game will be returned.
+     * <br>&emsp;-If Yes, sell will be filled by the current user.
+     * <br>Then method will call {@link Game#isPlayerWin(String currentPlayer)} method for check is user does win:
+     * <br>&emsp;-If Yes, current user will be set as winner and game will be returned.
+     * <br>Then method will call {@link Game#isItDraw()} method to check did the user move was the last empty game field
      * in this game:
-     * <br/>&emsp;-If Yes, {@link Game#draw} will be set to "true" and game will be returned.
-     * <br/>Then method depend no type of the game will:
-     * <br/>&emsp;-If game type is {@link PlayerVsRandomGame}, method {@link Game#switchCurrentPlayer()} will be called
+     * <br>&emsp;-If Yes, {@link Game#draw} will be set to "true" and game will be returned.
+     * <br>Then method depend no type of the game will:
+     * <br>&emsp;-If game type is {@link PlayerVsRandomGame}, method {@link Game#switchCurrentPlayer()} will be called
      * and game will be returned.
-     * <br/>&emsp;-In all another cases current user will be switched({@link Game#switchCurrentPlayer()}) and game will
+     * <br>&emsp;-In all another cases current user will be switched({@link Game#switchCurrentPlayer()}) and game will
      * make a move({@link Game#makeMove()}), then methods {@link Game#isPlayerWin(String currentPlayer)} and
      * {@link Game#isItDraw()} will call(if any of this methods will return "true" value, result of the game will
      * be set and game will be returned), then current user will be switched({@link Game#switchCurrentPlayer()})
@@ -214,7 +214,7 @@ public abstract class Game {
 
     /**
      * The abstract method should consist the logic how exactly the extended {@link Game} should make first move.
-     * <br/>Logically first move should be made by {@link Game#player2}.
+     * <br>Logically first move should be made by {@link Game#player2}.
      *
      * @return the {@link Game} with a first move made by {@link Game#player2}.
      */
@@ -222,9 +222,9 @@ public abstract class Game {
 
     /**
      * The abstract method should consist the logic how exactly the extended {@link Game} should make move.
-     * <br/>Logically move should be made by {@link Game#player2} and the result of the method should an empty cell
+     * <br>Logically move should be made by {@link Game#player2} and the result of the method should an empty cell
      * on game field filled by {@link Game#player2}.
-     * <br/>!!! Not for Player versus Player games like {@link PlayerVsPlayerGame}, logically in this case the method
+     * <br>!!! Not for Player versus Player games like {@link PlayerVsPlayerGame}, logically in this case the method
      * should just call the {@link Game#switchCurrentPlayer()} method.
      */
     protected abstract void makeMove();

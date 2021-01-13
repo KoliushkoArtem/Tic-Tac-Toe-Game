@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Class {@code PlayerVsAlgorithmController} is a Spring Boot Controller class witch allow to serve HTTP requests
  * from pages with Player versus Algorithm game.
  * Class has injected statistic service({@link StatisticService}) for showing statistic for games with an algorithm(MiniMax) on game page.
- * <br/>Path for requests "{pageContext}/game/algorithm"
+ * <br>Path for requests "{pageContext}/game/algorithm"
  *
  * @author Arterm Koliushko
  * @author https://www.linkedin.com/in/artem-koliushko/

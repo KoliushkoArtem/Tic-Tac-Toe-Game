@@ -8,7 +8,7 @@ import java.util.Map;
  * and make a chose what move will be less harmful for the result of the game. Best result of the game will be
  * The Algorithm MiniMax winning, so The Algorithm MiniMax always will try to win and less harmful for the result
  * of the game wil be the draw.
- * <br/>As base for this class was <a href="https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/">this<a/>
+ * <br>As base for this class was <a href="https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/">this</a>
  * article and code from examples. Code was refactored for current application needs.
  *
  * @author Arterm Koliushko
@@ -20,7 +20,7 @@ import java.util.Map;
 public class MiniMaxAlgorithm {
 
     /**
-     * Field with an injected in constructor {@link Game} class. This field used for take from game {@link Game#getCells()} and
+     * Field with an injected in constructor {@link Game} class. This field used for take from game {@link Game#cells} and
      * evaluate game field cost for making best move currently for this {@link Game}.
      */
     private final Game game;
@@ -38,7 +38,7 @@ public class MiniMaxAlgorithm {
     private final char emptyCell = '_';
 
     /**
-     * Constructor for class {@link MiniMaxAlgorithm}.<br/>Constructor initialized {@link MiniMaxAlgorithm#game} field by
+     * Constructor for class {@link MiniMaxAlgorithm}.<br>Constructor initialized {@link MiniMaxAlgorithm#game} field by
      * incoming param {@link PlayerVsAlgorithmGame} value.
      *
      * @param game {@link PlayerVsAlgorithmGame} in what should be made best algorithm move.
@@ -91,8 +91,8 @@ public class MiniMaxAlgorithm {
 
     /**
      * This method takes game board from the {@link MiniMaxAlgorithm#game} and refactor it from the line view to a classic view:
-     * <br/>Line view:<br/>(1, 2, 3, 4, 5, 6, 7, 8, 9)<br/>Classic view:<br/><u>1</u>|<u>2</u>|<u>3</u><br/><u>4</u>|<u>5</u>|<u>6</u><br/>7|8|9
-     * <br/>All moves on game field also marked on the board by {@link MiniMaxAlgorithm#player},
+     * <br>Line view:<br>(1, 2, 3, 4, 5, 6, 7, 8, 9)<br>Classic view:<br><u>1</u>|<u>2</u>|<u>3</u><br><u>4</u>|<u>5</u>|<u>6</u><br>7|8|9
+     * <br>All moves on game field also marked on the board by {@link MiniMaxAlgorithm#player},
      * {@link MiniMaxAlgorithm#algorithm}, {@link MiniMaxAlgorithm#emptyCell}) characters.
      *
      * @return {@code char[3][3]} with refactored game board and all moves made in the game.
@@ -124,8 +124,8 @@ public class MiniMaxAlgorithm {
      *
      * @param board {@code char[][]} board which can be received by using a method {@link MiniMaxAlgorithm#getBordFromGame()}.
      * @param depth deepness of the "tree" with all possible game combination.
-     * @param isMax {@code Boolean} value is the MiniMax Algorithm move turn or an user<br/>(true -> algorithm, false -> user).
-     *              <br/>Also called as Maximizer and Minimizer.
+     * @param isMax {@code Boolean} value is the MiniMax Algorithm move turn or an user<br>(true - algorithm, false - user).
+     *              <br>Also called as Maximizer and Minimizer.
      * @return evaluated cost of the game board, acceptable values {@code -10}, {@code +10}, {@code 0}(zero)
      * @see <a href="https://www.javatpoint.com/mini-max-algorithm-in-ai">Mini-Max Algorithm in Artificial Intelligence</a>
      */
@@ -187,9 +187,9 @@ public class MiniMaxAlgorithm {
 
     /**
      * The method receive game board and check is any of winning lines was finished.
-     * <br/>According to the amount of the game field cells and rules of the game it can be only 8 lines on which
+     * <br>According to the amount of the game field cells and rules of the game it can be only 8 lines on which
      * a player or the algorithm can make a winning combination from 3 moves in a row.
-     * <br/>According needs of the algorithm this method evaluate cost of the game field. If an user make a winning
+     * <br>According needs of the algorithm this method evaluate cost of the game field. If an user make a winning
      * line will be returned negative value({@code -10}), if an algorithm make a winning line will be returned positive
      * value({@code +10}), if no one makes a winning line will be returned {@code 0}(zero).
      *

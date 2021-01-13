@@ -1,0 +1,7 @@
+com.neven.ticTacToeGame
+com.neven.ticTacToeGame.controller
+com.neven.ticTacToeGame.entity
+com.neven.ticTacToeGame.model
+com.neven.ticTacToeGame.repository
+com.neven.ticTacToeGame.service
+com.neven.ticTacToeGame.utils

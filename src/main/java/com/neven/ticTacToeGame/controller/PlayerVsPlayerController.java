@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Class {@code PlayerVsPlayerController} is a Spring Boot Controller class witch allow to serve HTTP requests
  * from pages with Player versus Player game.
- * <br/>Path for requests "{pageContext}/game/players"
+ * <br>Path for requests "{pageContext}/game/players"
  *
  * @author Arterm Koliushko
  * @author https://www.linkedin.com/in/artem-koliushko/

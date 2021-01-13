@@ -18,7 +18,7 @@ public class PlayerVsAlgorithmGame extends Game {
     private static final String PLAYER_2_NAME = "MiniMax";
 
     /**
-     * Constructor for class {@link PlayerVsAlgorithmGame}.<br/>Initialize parent({@link Game} class) constructor
+     * Constructor for class {@link PlayerVsAlgorithmGame}.<br>Initialize parent({@link Game} class) constructor
      * with a name of second player.
      */
     public PlayerVsAlgorithmGame() {
@@ -28,7 +28,7 @@ public class PlayerVsAlgorithmGame extends Game {
 
     /**
      * This method overrides parent {@link Game#makeFirstMove()} method.
-     * <br/>According to the {@link MiniMaxAlgorithm} specific, it is always return as {@link MiniMaxAlgorithm#findBestMove()}
+     * <br>According to the {@link MiniMaxAlgorithm} specific, it is always return as {@link MiniMaxAlgorithm#findBestMove()}
      * result first positive value of the {@link MiniMaxAlgorithm} move, if the {@link MiniMaxAlgorithm} will be make
      * a move in an empty game field it is always will be first cell. So for making first move more variable,
      * this method returns randomly chosen one of the 4 starting positions(corners of the game field).
@@ -58,8 +58,8 @@ public class PlayerVsAlgorithmGame extends Game {
 
     /**
      * This method overrides parent {@link Game#makeMove()} method.
-     * <br/>Method create an object of the {@link MiniMaxAlgorithm} class, and call his {@link MiniMaxAlgorithm#findBestMove()}
-     * method to receive number of game field cell to which put {@link PlayerVsPlayerGame#getPlayer2()} value. This cell
+     * <br>Method create an object of the {@link MiniMaxAlgorithm} class, and call his {@link MiniMaxAlgorithm#findBestMove()}
+     * method to receive number of game field cell to which put the algorithm name value. This cell
      * will be a {@link MiniMaxAlgorithm} move in the game.
      */
     @Override

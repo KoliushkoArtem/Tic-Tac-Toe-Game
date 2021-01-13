@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.neven.ticTacToeGame"},{"l":"com.neven.ticTacToeGame.controller"},{"l":"com.neven.ticTacToeGame.entity"},{"l":"com.neven.ticTacToeGame.model"},{"l":"com.neven.ticTacToeGame.repository"},{"l":"com.neven.ticTacToeGame.service"},{"l":"com.neven.ticTacToeGame.utils"}]

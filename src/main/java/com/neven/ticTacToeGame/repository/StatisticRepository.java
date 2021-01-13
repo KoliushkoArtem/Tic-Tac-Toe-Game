@@ -8,7 +8,7 @@ import java.util.Optional;
 
 /**
  * This interface is a repository for {@link Statistic} class.
- * <br/> This interface gives an opportunity to make different operations with {@link Statistic} class in
+ * <br> This interface gives an opportunity to make different operations with {@link Statistic} class in
  * database(CRUD and a lot of more).
  *
  * @author Arterm Koliushko

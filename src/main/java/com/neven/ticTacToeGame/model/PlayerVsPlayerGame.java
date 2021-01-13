@@ -16,7 +16,7 @@ public class PlayerVsPlayerGame extends Game {
     private static final String PLAYER_2_NAME = "user_2";
 
     /**
-     * Constructor for class {@link PlayerVsPlayerGame}.<br/>Initialize parent({@link Game} class) constructor
+     * Constructor for class {@link PlayerVsPlayerGame}.<br>Initialize parent({@link Game} class) constructor
      * with a name of second player.
      */
     public PlayerVsPlayerGame() {
@@ -25,8 +25,8 @@ public class PlayerVsPlayerGame extends Game {
 
     /**
      * This method overrides parent {@link Game#makeFirstMove()} method.
-     * <br/>This method just switch current player using {@link Game#switchCurrentPlayer()} method and return current {@link Game}.
-     * <br/>Games Player versus Player does not have any logic for making moves.
+     * <br>This method just switch current player using {@link Game#switchCurrentPlayer()} method and return current {@link Game}.
+     * <br>Games Player versus Player does not have any logic for making moves.
      *
      * @return {@link Game} with switched current player.
      */
@@ -38,8 +38,8 @@ public class PlayerVsPlayerGame extends Game {
 
     /**
      * This method overrides parent {@link Game#makeMove()} method.
-     * <br/>This method just switch current player using {@link Game#switchCurrentPlayer()} method.
-     * <br/>Games Player versus Player does not have any logic for making moves.
+     * <br>This method just switch current player using {@link Game#switchCurrentPlayer()} method.
+     * <br>Games Player versus Player does not have any logic for making moves.
      */
     @Override
     protected void makeMove() {

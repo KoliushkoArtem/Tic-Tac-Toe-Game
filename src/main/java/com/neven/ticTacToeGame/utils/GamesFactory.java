@@ -6,11 +6,11 @@ import com.neven.ticTacToeGame.model.PlayerVsPlayerGame;
 import com.neven.ticTacToeGame.model.PlayerVsRandomGame;
 
 /**
- * Class {@code GamesFactory} is a <u>Factory Design Pattern<u/>.
+ * Class {@code GamesFactory} is a <u>Factory Design Pattern</u>.
  *
  * @author Arterm Koliushko
  * @author https://www.linkedin.com/in/artem-koliushko/
- * @see <a href="https://www.journaldev.com/1392/factory-design-pattern-in-java">Factory Design Pattern<a/>
+ * @see <a href="https://www.journaldev.com/1392/factory-design-pattern-in-java">Factory Design Pattern</a>
  */
 public class GamesFactory {
 

@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Class {@code MainPageController} is a Spring Boot Controller class witch allow to serve HTTP requests
  * from main page of application.
  * Class has injected statistic service({@link StatisticService}) for showing statistic for games with an algorithm(MiniMax) on main page.
- * <br/>Path for requests "{pageContext}/"
+ * <br>Path for requests "{pageContext}/"
  *
  * @author Arterm Koliushko
  * @author https://www.linkedin.com/in/artem-koliushko/
