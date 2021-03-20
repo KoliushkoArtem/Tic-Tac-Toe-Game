@@ -56,7 +56,7 @@ public class PlayerVsRandomController {
      */
     @GetMapping
     @ResponseBody
-    ModelAndView getGameWithRandom() {
+    public ModelAndView getGameWithRandom() {
         return new ModelAndView(GAME_START_PAGE_NAME);
     }
 
@@ -71,7 +71,7 @@ public class PlayerVsRandomController {
      * @return {@link ModelAndView} with name of Player versus Random game page view and {@link PlayerVsRandomGame} in model.
      */
     @GetMapping(value = "/{whoStart}")
-    ModelAndView startGameWithRandom(@PathVariable(name = "whoStart") String whoStart) {
+    public ModelAndView startGameWithRandom(@PathVariable(name = "whoStart") String whoStart) {
         Game newGame = GamesFactory.getGame(GameTypes.PLAYER_VS_RANDOM);
         if (whoStart.equals(USER_START_NAME)) {
             return new ModelAndView(GAME_PAGE_NAME, GAME_MODEL_ATTRIBUTE_NAME, newGame);
@@ -95,7 +95,7 @@ public class PlayerVsRandomController {
      * @return {@link ModelAndView} with name of Player versus Random game page view and {@link PlayerVsRandomGame} in model.
      */
     @PostMapping
-    ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
+    public ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
         Object game = model.getAttribute(GAME_MODEL_ATTRIBUTE_NAME);
         if (game instanceof PlayerVsRandomGame) {
             PlayerVsRandomGame playedGame = (PlayerVsRandomGame) game;

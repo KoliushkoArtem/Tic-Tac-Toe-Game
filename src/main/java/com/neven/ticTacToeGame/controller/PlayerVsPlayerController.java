@@ -39,7 +39,7 @@ public class PlayerVsPlayerController {
      * with new {@link PlayerVsPlayerGame} as a {@link Model} attribute.
      */
     @GetMapping
-    ModelAndView startGameWithPlayers() {
+    public ModelAndView startGameWithPlayers() {
         return new ModelAndView(GAME_PAGE_NAME, GAME_MODEL_ATTRIBUTE_NAME, GamesFactory.getGame(GameTypes.PLAYER_VS_PLAYER));
     }
 
@@ -54,7 +54,7 @@ public class PlayerVsPlayerController {
      * @return {@link ModelAndView} with name of Player versus Player game page view and {@link PlayerVsPlayerGame} in model.
      */
     @PostMapping
-    ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
+    public ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
         Object game = model.getAttribute(GAME_MODEL_ATTRIBUTE_NAME);
         if (game instanceof PlayerVsPlayerGame) {
             Game playerVsPlayerGame = ((PlayerVsPlayerGame) game).winningCheckAndMakingMove(cell);

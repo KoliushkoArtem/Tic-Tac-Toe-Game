@@ -76,7 +76,7 @@ public class PlayerVsAlgorithmController {
      */
     @GetMapping
     @ResponseBody
-    ModelAndView getGameWithAlgorithm() {
+    public ModelAndView getGameWithAlgorithm() {
         return new ModelAndView(GAME_START_PAGE_NAME);
     }
 
@@ -91,7 +91,7 @@ public class PlayerVsAlgorithmController {
      * @return {@link ModelAndView} with name of player versus algorithm game page view and {@link PlayerVsAlgorithmGame} in model.
      */
     @GetMapping(value = "/{whoStart}")
-    ModelAndView startGameWithAlgorithm(@PathVariable(name = "whoStart") String whoStart) {
+    public ModelAndView startGameWithAlgorithm(@PathVariable(name = "whoStart") String whoStart) {
         Game newGame = GamesFactory.getGame(GameTypes.PLAYER_VS_ALGORITHM);
         if (whoStart.equals(USER_START_NAME)) {
             return new ModelAndView(GAME_PAGE_NAME, GAME_MODEL_ATTRIBUTE_NAME, newGame);
@@ -116,7 +116,7 @@ public class PlayerVsAlgorithmController {
      * @return {@link ModelAndView} with name of player versus algorithm game page view and {@link PlayerVsAlgorithmGame} in model.
      */
     @PostMapping
-    ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
+    public ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
         Object game = model.getAttribute(GAME_MODEL_ATTRIBUTE_NAME);
         if (game instanceof PlayerVsAlgorithmGame) {
             PlayerVsAlgorithmGame playedGame = (PlayerVsAlgorithmGame) game;
