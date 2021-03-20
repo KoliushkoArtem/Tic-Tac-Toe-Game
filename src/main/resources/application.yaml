@@ -4,15 +4,28 @@ spring:
       prefix: /WEB-INF/views/
       suffix: .jsp
 
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/TicTacToeGame?serverTimezone=UTC&createDatabaseIfNotExist=true
+#    username: USERNAME
+#    password: PASSWORD
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#    open-in-view: false
+
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/TicTacToeGame?serverTimezone=UTC&createDatabaseIfNotExist=true
-    username: root
-    password: coderslab
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
 
   jpa:
     hibernate:
       ddl-auto: update
     properties:
-      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
     open-in-view: false

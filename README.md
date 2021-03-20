@@ -18,7 +18,7 @@ MiniMax Algorithm is finished.
 ### • Maven<br>
 ### • Spring Boot<br>
 ### • Hibernate<br>
-### • MySQL<br>
+### • MySQL/H2<br>
 ### • Javadoc<br>
 ### • Three-tier architecture<br>
 ### • Project Lombok<br>
@@ -34,4 +34,4 @@ MiniMax Algorithm is finished.
 ## License
 #### Apache 2.0
 ## How to use application
-### Download all files or clone repository, set up in property.yml your database and run at the server
+### Download all files or clone repository, by default used in memory H2 database, to use SQL database uncomment and set up in property.yml your database and run application locally or at the server
