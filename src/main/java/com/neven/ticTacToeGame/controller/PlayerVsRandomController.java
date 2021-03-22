@@ -8,7 +8,13 @@ import com.neven.ticTacToeGame.utils.GameTypes;
 import com.neven.ticTacToeGame.utils.GamesFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -56,7 +62,7 @@ public class PlayerVsRandomController {
      */
     @GetMapping
     @ResponseBody
-    ModelAndView getGameWithRandom() {
+    public ModelAndView getGameWithRandom() {
         return new ModelAndView(GAME_START_PAGE_NAME);
     }
 
@@ -71,7 +77,7 @@ public class PlayerVsRandomController {
      * @return {@link ModelAndView} with name of Player versus Random game page view and {@link PlayerVsRandomGame} in model.
      */
     @GetMapping(value = "/{whoStart}")
-    ModelAndView startGameWithRandom(@PathVariable(name = "whoStart") String whoStart) {
+    public ModelAndView startGameWithRandom(@PathVariable(name = "whoStart") String whoStart) {
         Game newGame = GamesFactory.getGame(GameTypes.PLAYER_VS_RANDOM);
         if (whoStart.equals(USER_START_NAME)) {
             return new ModelAndView(GAME_PAGE_NAME, GAME_MODEL_ATTRIBUTE_NAME, newGame);

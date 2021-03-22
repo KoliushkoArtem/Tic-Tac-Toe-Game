@@ -6,7 +6,11 @@ import com.neven.ticTacToeGame.utils.GameTypes;
 import com.neven.ticTacToeGame.utils.GamesFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -54,7 +58,7 @@ public class PlayerVsPlayerController {
      * @return {@link ModelAndView} with name of Player versus Player game page view and {@link PlayerVsPlayerGame} in model.
      */
     @PostMapping
-    ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
+    public ModelAndView game(Model model, @RequestParam(value = "cell") int cell) {
         Object game = model.getAttribute(GAME_MODEL_ATTRIBUTE_NAME);
         if (game instanceof PlayerVsPlayerGame) {
             Game playerVsPlayerGame = ((PlayerVsPlayerGame) game).winningCheckAndMakingMove(cell);

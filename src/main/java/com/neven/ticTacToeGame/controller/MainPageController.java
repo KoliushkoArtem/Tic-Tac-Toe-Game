@@ -53,7 +53,7 @@ public class MainPageController {
      * @return {@link ModelAndView} with mane of the main page view and {@link Statistic} of the games with an algorithm(MiniMax) in model.
      */
     @GetMapping
-    ModelAndView mainPage() {
+    public ModelAndView mainPage() {
         Statistic statistic = statisticService.getStatistic();
         return new ModelAndView(MAIN_PAGE_NAME, STATISTIC_MODEL_NAME, statistic);
     }
